@@ -1,9 +1,27 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
 
+export const contentStyle = {
+    marginTop:'50px',
+    height: '860px',
+    color: '#fff',
+    lineHeight: '560px',
+    textAlign: 'center',
+    background: 'rgb(32, 33, 37,98%)',
+overflow:'hidden'
+};
+
+export const imgStyle={
+    width:'100 %',
+    margin:'0 auto',
+    justifyContent:'center',
+    height: "100%",
+    objectFit:'cover'
+}
+
 export const SectionWrapper = styled.div`
     display: flex;
-    background-color: #bdaeac;
+    background-color: rgb(32, 33, 37);
     height: 100%;
     width:100%;
     justify-content: space-between;
