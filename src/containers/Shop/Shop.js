@@ -6,7 +6,6 @@ import {
     WrapperStyle,
 } from './Shop.styled'
 import Car from "../../components/Car/Car";
-import Contact from "../Contact/Contact";
 import {Api} from "../services/Api";
 
 
@@ -14,17 +13,19 @@ import {Api} from "../services/Api";
 class Shop extends React.Component {
 
     carService=new Api();
-
     state = {cars: [],chosenOne:null}
+
+
+
 
     componentDidMount() {
         this.carService.getAllCars().then(value => this.setState({cars:value}))
     }
 
-
     onCarChose=(id)=>{
-        this.carService.getCarById(id).then(value => this.setState({chosenOne:value}))
+        localStorage.setItem('key',id)
     }
+
 
 
     sortByPrice = () => {
@@ -67,21 +68,17 @@ class Shop extends React.Component {
 
 
     render() {
-        let {chosenOne,cars} = this.state;
-        console.log(chosenOne)
+        let {cars} = this.state;
         return (
             <div style={ShopStyled}>
                 <FilterMenu onSearch={this.onSearch} totalPrice={this.totalPrice} sortByPriceDesc={this.sortByPriceDesc} sortByPrice={this.sortByPrice}/>
                 <CardWrapper style={WrapperStyle}>
                     {
-                        cars.map((car, index) =><Car item={car} id={index} onCarChose={this.onCarChose} button={this.item}/>)
+                        cars.map((car, index) =><Car item={car} id={index}  onCarChose={this.onCarChose} button={this.item}/>)
                     }
 
                 </CardWrapper>
 
-                {
-                    chosenOne && <Contact  title={chosenOne.model} price={this.state.chosenOne.priceInUaH} text={this.state.chosenOne.producerName}/>
-                }
             </div>
         );
     };

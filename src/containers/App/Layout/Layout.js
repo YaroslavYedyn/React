@@ -27,8 +27,8 @@ const Layout = () => (
                 </IconsWrapper>
             </div>
             <div>
-                <IconsWrapper>
-                        <NavLink exact to="" activeClassName="selected">
+                <IconsWrapper >
+                        <NavLink exact to="Shop" activeClassName="selected">
                             <ShoppingCartOutlined/></NavLink>
                         <NavLink exact to="/Login" activeClassName="selected"><UserOutlined/></NavLink>
                 </IconsWrapper>

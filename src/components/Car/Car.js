@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import { Card,Button } from 'antd';
 import { Footer } from "./Car.styled";
 import ImageModel4 from "../../Icons/car_item1.jpg";
-
+// import {Item} from "../../containers/Item/Item"
+import Item from "../../containers/Item/Item"
+import {NavLink} from "react-router-dom";
 
 
 class Car extends Component {
     render() {
         const { Meta } = Card;
-        let {item,id,onCarChose}=this.props
+        let {item,id,onCarChose,isShowButton}=this.props
         item.id=id
 
         return (
@@ -23,7 +25,12 @@ class Car extends Component {
                     <p>${item.priceInUaH}</p>
                     <div>{item.productionYear}</div>
                     <div>{item.id}</div>
-                    <Button  onClick={()=>onCarChose(item.id)}>Show More</Button>
+                    {
+                        !isShowButton &&
+                        <Button onClick={() => onCarChose(item.id)}><NavLink exact to="/Item"
+                                                                             activeClassName="selected">View
+                            more!</NavLink></Button>
+                    }
                 </Footer>
             </Card>
         );

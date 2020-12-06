@@ -67,7 +67,7 @@ this.carService.getAllCars().then(value => this.setState({carsArr:value.splice(0
                 </SectionWrapper>
                 <CardWrapper style={WrapperStyleHome}>
                     {
-                        carsArr.map(car=><Car item={car}/>)
+                        carsArr.map(car=><Car isShowButton={true} item={car}/>)
                     }
                 </CardWrapper>
                 <Button onClick={this.showCars} style={ButtonStyled} type="primary">View more!</Button>

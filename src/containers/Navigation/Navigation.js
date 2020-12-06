@@ -3,23 +3,16 @@ import {BrowserRouter as Router, Switch, Route, NavLink} from "react-router-dom"
 import {LinkingWrapper} from './Navigation.styles';
 import Home from '../Home/Home';
 import Shop from "../Shop/Shop";
-import Contact from "../Contact/Contact";
+import Item from "../Item/Item";
 import Login from "../Login/Login";
 import {ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
 import {IconsWrapper, StyledHeader} from "../App/Layout/Layout.styles";
+import Basket from "../Basket/Basket";
 
 
 const Navigation = () => (
     <Router>
         <LinkingWrapper>
-            <StyledHeader>
-                <IconsWrapper>
-                    <NavLink exact to="/" activeClassName="selected"
-                             style={{marginRight: 20, marginLeft: 1600,}}>
-                        <ShoppingCartOutlined/></NavLink>
-                    <NavLink exact to="/Login" activeClassName="selected"><UserOutlined/></NavLink>
-                </IconsWrapper>
-            </StyledHeader>
             <ul>
                 <li>
                     <NavLink exact to="/Home" activeClassName="selected">Home</NavLink>
@@ -30,9 +23,6 @@ const Navigation = () => (
                 <li>
                     <NavLink exact to="/blog" activeClassName="selected">Information</NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/Contact" activeClassName="selected">Contact</NavLink>
-                </li>
             </ul>
             <Switch>
                 <Route path="/Shop">
@@ -41,14 +31,17 @@ const Navigation = () => (
                 <Route path="/blog">
                     <div>information</div>
                 </Route>
-                <Route path="/contact">
-                    <Contact/>
+                <Route path="/Item">
+                    <Item/>
                 </Route>
                 <Route path="/Home">
                     <Home/>
                 </Route>
                 <Route path="/Login">
                     <Login/>
+                </Route>
+                <Route path="/Basket">
+                    <Basket/>
                 </Route>
             </Switch>
         </LinkingWrapper>
